@@ -1,11 +1,12 @@
 sudo: false
 language: go
 script:
-  - unset $GOPATH
-  - go get 
-  - git clone https://github.com/ShigekiKarita/hugo -b dlang --depth 1
-  - cd hugo && go install && cd -
-  - ~/go/bin/hugo
+  - git clone https://github.com/gohugoio/hugo --depth 1 -b release-0.55.4
+  - cd hugo
+  - sed -i 's/v.0.6.3/v0.6.4-0.20190428191540-1327f9145ea6/' ./go.mod
+  - go install
+  - cd -
+  - $GOPATH/bin/hugo
   - touch public/.nojekyll
 
 deploy:
