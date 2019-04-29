@@ -14,9 +14,11 @@ https://github.com/alecthomas/chroma/pull/249
 sudo: false
 language: go
 script:
+  - unset $GOPATH
+  - go get 
   - git clone https://github.com/ShigekiKarita/hugo -b dlang --depth 1
-  - cd hugo &&  go install && cd -
-  - hugo
+  - cd hugo && go install && cd -
+  - ~/go/bin/hugo
   - touch public/.nojekyll
 
 deploy:
