@@ -1,6 +1,6 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+baseURL = "https://shigekikarita.github.io/hugo-test/"
+languageCode = "ja"
+title = "Hugo test"
 theme = "ananke"
 
 pygmentsCodefences=true
