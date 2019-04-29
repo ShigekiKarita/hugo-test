@@ -5,9 +5,8 @@ script:
   - INIT_DIR=$(pwd)
   - mkdir $HOME/src
   - cd $HOME/src
-  - git clone https://github.com/gohugoio/hugo --depth 1 -b release-0.55.4
+  - git clone https://github.com/ShigekiKarita/hugo --depth 1 -b dlang
   - cd hugo
-  - sed -i 's/v.0.6.3/v0.6.4-0.20190428191540-1327f9145ea6/' ./go.mod
   - go install
   - cd $INIT_DIR
   # build page
