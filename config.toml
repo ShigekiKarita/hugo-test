@@ -1,6 +1,6 @@
 baseURL = "https://shigekikarita.github.io/hugo-test/"
 languageCode = "ja"
 title = "Hugo test"
-theme = "ananke"
+theme = "kiera"
 
 pygmentsCodefences=true
