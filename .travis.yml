@@ -3,7 +3,7 @@ sudo: false
 script:
   # install hugo
   - wget https://github.com/ShigekiKarita/hugo/releases/download/dlang-v1/hugo.tar.xz
-  - tar -xvf hugo.tar.gz
+  - tar -xvf hugo.tar.xz
   - ./hugo
   # - INIT_DIR=$(pwd)
   # - mkdir $HOME/src
