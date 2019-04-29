@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Hugo test</title>
+    <link>https://shigekikarita.github.io/hugo-test/categories/</link>
+    <description>Recent content in Categories on Hugo test</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Mon, 29 Apr 2019 12:56:42 +0900</lastBuildDate>
+    
+	<atom:link href="https://shigekikarita.github.io/hugo-test/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Programming</title>
+      <link>https://shigekikarita.github.io/hugo-test/categories/programming/</link>
+      <pubDate>Mon, 29 Apr 2019 12:56:42 +0900</pubDate>
+      
+      <guid>https://shigekikarita.github.io/hugo-test/categories/programming/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

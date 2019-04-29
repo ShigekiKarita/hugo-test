@@ -1,0 +1,115 @@
+<!doctype html>
+
+<html lang="ja">
+
+<head>
+  <title>Hugo test</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="The HTML5 Herald" />
+  <meta name="author" content="" />
+  <meta name="generator" content="Hugo 0.56.0-DEV" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  <link rel="stylesheet" type="text/css" href="/hugo-test/css/styles.css" />
+</head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/hugo-test/">Hugo test</a>
+            </h1>
+
+      <ul id="social-media">
+             
+      </ul>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+    </ul>
+</nav>
+
+    <main>
+
+
+
+
+<section id="home">
+        <ul>
+          
+          <li class="first">
+            <h1><a href="https://shigekikarita.github.io/hugo-test/posts/my-first-post/" title="My First Post">My First Post</a></h1> 
+            <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2019-04-29T12:56:42&#43;09:00">Apr 29, 2019</time>
+        </li>
+        
+        
+        <li>
+            Categories: 
+            <em>
+                
+                    
+                    <a href="/categories/programming/">Programming</a>
+                
+            </em>
+        </li>
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/d/">#D</a>
+                
+                    , 
+                    <a href="/tags/hugo/">#Hugo</a>
+                
+                    , 
+                    <a href="/tags/travis-ci/">#Travis CI</a>
+                
+                    , 
+                    <a href="/tags/gh-pages/">#gh-pages</a>
+                
+            </em>
+        </li>
+        
+
+        <li>1 min read</li>
+    </ul>
+</aside>
+            <p>Hugo使ってみたかったが、D言語のシンタックスハイライトがなかったのでPRおくってみた
+https://github.com/alecthomas/chroma/pull/249
+マージされたので、そのうち新バージョンがリリースされて Hugo 本家にもアップデートされると思うが、とりあえず fork してアップデートしてみた。
+import std.stdio; void main() { writeln(&#34;Hello&#34;); }  ちゃんとハイライトされていると思う。このサイトはgh-pages上でホストされている。
+https://shigekikarita.github.io/hugo-test/posts/my-first-post/
+sudo: false language: go script: # install hugo - INIT_DIR=$(pwd) - mkdir $HOME/src - cd $HOME/src - git clone https://github.com/ShigekiKarita/hugo --depth 1 -b dlang - cd hugo - go install - cd $INIT_DIR # build page - $GOPATH/bin/hugo - touch public/.nojekyll deploy: provider: pages skip_cleanup: true github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard local_dir: public on: branch: master こんな風にTravisを設定してデプロイしたのがこのページである。</p>
+            
+            <a href="/hugo-test/posts/my-first-post/">Read more&hellip;</a>
+            
+          </li>
+          
+        </ul>
+      </section>
+
+
+
+</main>
+    <footer>
+        <h6> | 
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="https://shigekikarita.github.io/hugo-test/index.xml">Subscribe</a></h6>
+    </footer>
+</div>
+<script src="/hugo-test/js/scripts.js"></script>
+</body>
+
+</html>

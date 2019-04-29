@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on Hugo test</title>
+    <link>https://shigekikarita.github.io/hugo-test/tags/hugo/</link>
+    <description>Recent content in Hugo on Hugo test</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Mon, 29 Apr 2019 12:56:42 +0900</lastBuildDate>
+    
+	<atom:link href="https://shigekikarita.github.io/hugo-test/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>My First Post</title>
+      <link>https://shigekikarita.github.io/hugo-test/posts/my-first-post/</link>
+      <pubDate>Mon, 29 Apr 2019 12:56:42 +0900</pubDate>
+      
+      <guid>https://shigekikarita.github.io/hugo-test/posts/my-first-post/</guid>
+      <description>Hugo使ってみたかったが、D言語のシンタックスハイライトがなかったのでPRおくってみた
+https://github.com/alecthomas/chroma/pull/249
+マージされたので、そのうち新バージョンがリリースされて Hugo 本家にもアップデートされると思うが、とりあえず fork してアップデートしてみた。
+import std.stdio; void main() { writeln(&amp;#34;Hello&amp;#34;); }  ちゃんとハイライトされていると思う。このサイトはgh-pages上でホストされている。
+https://shigekikarita.github.io/hugo-test/posts/my-first-post/
+sudo: false language: go script: # install hugo - INIT_DIR=$(pwd) - mkdir $HOME/src - cd $HOME/src - git clone https://github.com/ShigekiKarita/hugo --depth 1 -b dlang - cd hugo - go install - cd $INIT_DIR # build page - $GOPATH/bin/hugo - touch public/.nojekyll deploy: provider: pages skip_cleanup: true github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard local_dir: public on: branch: master こんな風にTravisを設定してデプロイしたのがこのページである。</description>
+    </item>
+    
+  </channel>
+</rss>

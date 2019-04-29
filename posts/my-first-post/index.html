@@ -1,0 +1,177 @@
+<!doctype html>
+
+<html lang="ja">
+
+<head>
+  <title>Hugo test</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="The HTML5 Herald" />
+  <meta name="author" content="" />
+  <meta name="generator" content="Hugo 0.56.0-DEV" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  <link rel="stylesheet" type="text/css" href="/hugo-test/css/styles.css" />
+</head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/hugo-test/">Hugo test</a>
+            </h1>
+
+      <ul id="social-media">
+             
+      </ul>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+    </ul>
+</nav>
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>My First Post</h1>
+
+    
+        <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2019-04-29T12:56:42&#43;09:00">Apr 29, 2019</time>
+        </li>
+        
+        
+        <li>
+            Categories: 
+            <em>
+                
+                    
+                    <a href="/categories/programming/">Programming</a>
+                
+            </em>
+        </li>
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/d/">#D</a>
+                
+                    , 
+                    <a href="/tags/hugo/">#Hugo</a>
+                
+                    , 
+                    <a href="/tags/travis-ci/">#Travis CI</a>
+                
+                    , 
+                    <a href="/tags/gh-pages/">#gh-pages</a>
+                
+            </em>
+        </li>
+        
+
+        <li>1 min read</li>
+    </ul>
+</aside>
+    
+
+    <p>Hugo使ってみたかったが、D言語のシンタックスハイライトがなかったのでPRおくってみた</p>
+
+<p><a href="https://github.com/alecthomas/chroma/pull/249">https://github.com/alecthomas/chroma/pull/249</a></p>
+
+<p>マージされたので、そのうち新バージョンがリリースされて Hugo 本家にもアップデートされると思うが、とりあえず fork してアップデートしてみた。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-d" data-lang="d"><span style="color:#f92672">import</span> std.stdio<span style="color:#f92672">;</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    writeln<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello&#34;</span><span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div>
+<p>ちゃんとハイライトされていると思う。このサイトはgh-pages上でホストされている。</p>
+
+<p><a href="https://shigekikarita.github.io/hugo-test/posts/my-first-post/">https://shigekikarita.github.io/hugo-test/posts/my-first-post/</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">sudo: <span style="color:#66d9ef">false</span>
+language: go
+script:
+  <span style="color:#75715e"># install hugo</span>
+  - INIT_DIR=$(pwd)
+  - mkdir $HOME/src
+  - cd $HOME/src
+  - git clone https://github.com/ShigekiKarita/hugo --depth <span style="color:#ae81ff">1</span> -b dlang
+  - cd hugo
+  - go install
+  - cd $INIT_DIR
+  <span style="color:#75715e"># build page</span>
+  - $GOPATH/bin/hugo
+  - touch public/.nojekyll
+
+deploy:
+  provider: pages
+  skip_cleanup: <span style="color:#66d9ef">true</span>
+  github_token: $GITHUB_TOKEN <span style="color:#75715e"># Set in travis-ci.org dashboard</span>
+  local_dir: public
+  on:
+    branch: master</code></pre></div>
+<p>こんな風にTravisを設定してデプロイしたのがこのページである。</p>
+
+<ul>
+<li><a href="https://docs.travis-ci.com/user/deployment/pages/">https://docs.travis-ci.com/user/deployment/pages/</a></li>
+<li><a href="https://github.com/ShigekiKarita/hugo-test/blob/master/.travis.yml">https://github.com/ShigekiKarita/hugo-test/blob/master/.travis.yml</a></li>
+</ul>
+
+<p>それか、私の作ったバイナリを信用するならもっと楽である。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">sudo: <span style="color:#66d9ef">false</span>
+language: bash
+script:
+  - wget https://github.com/ShigekiKarita/hugo/releases/download/dlang-v1/hugo.tar.xz
+  - tar -xvf hugo.tar.xz
+  - ./hugo
+  - touch public/.nojekyll
+
+deploy:
+  provider: pages
+  skip_cleanup: <span style="color:#66d9ef">true</span>
+  github_token: $GITHUB_TOKEN <span style="color:#75715e"># Set in travis-ci.org dashboard</span>
+  local_dir: public
+  on:
+    branch: master</code></pre></div>
+<p>2分かかっていた Hugo 自体のビルド時間がなくなり、バイナリのDLだけになったので 30 sec 程度で markdown の push からサイトがビルドされる。以前、Jekyllを使っていたがどうもサイトの生成が遅かったので Hugo は素晴らしいと思う。</p>
+
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        
+    </ul>
+</section>
+    
+
+
+
+
+
+</main>
+    <footer>
+        <h6> | 
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="https://shigekikarita.github.io/hugo-test/index.xml">Subscribe</a></h6>
+    </footer>
+</div>
+<script src="/hugo-test/js/scripts.js"></script>
+</body>
+
+</html>
