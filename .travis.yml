@@ -1,19 +1,9 @@
 sudo: false
-# language: go
+language: bash
 script:
-  # install hugo
   - wget https://github.com/ShigekiKarita/hugo/releases/download/dlang-v1/hugo.tar.xz
   - tar -xvf hugo.tar.xz
   - ./hugo
-  # - INIT_DIR=$(pwd)
-  # - mkdir $HOME/src
-  # - cd $HOME/src
-  # - git clone https://github.com/ShigekiKarita/hugo --depth 1 -b dlang
-  # - cd hugo
-  # - go install
-  # - cd $INIT_DIR
-  # build page
-  # - $GOPATH/bin/hugo
   - touch public/.nojekyll
 
 deploy:

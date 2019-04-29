@@ -10,6 +10,15 @@ https://github.com/alecthomas/chroma/pull/249
 
 マージされたので、そのうち新バージョンがリリースされて Hugo 本家にもアップデートされると思うが、とりあえず fork してアップデートしてみた。
 
+```d
+import std.stdio;
+void main() {
+    writeln("Hello");
+}
+```
+
+ちゃんとハイライトされていると思う。
+
 ```yaml
 sudo: false
 language: go
@@ -40,11 +49,22 @@ deploy:
 - https://docs.travis-ci.com/user/deployment/pages/
 - https://github.com/ShigekiKarita/hugo-test/blob/master/.travis.yml
 
-ちゃんとハイライトされていると思う。
+それか、私の作ったバイナリを信用するならもっと楽である。
 
-```d
-import std.stdio;
-void main() {
-    writeln("Hello");
-}
+```yaml
+sudo: false
+language: bash
+script:
+  - wget https://github.com/ShigekiKarita/hugo/releases/download/dlang-v1/hugo.tar.xz
+  - tar -xvf hugo.tar.xz
+  - ./hugo
+  - touch public/.nojekyll
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  local_dir: public
+  on:
+    branch: master
 ```
